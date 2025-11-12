@@ -27,7 +27,7 @@ dependencies = [
 
 
 [project.urls]
-repository = "https://github.com/FAIRmat-NFDI/nomad-distro-template"
+repository = "https://github.com/nomad-hzb/hzb-bat-image"
 
 [project.optional-dependencies]
 plugins = [
