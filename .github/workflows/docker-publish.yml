@@ -1,0 +1,235 @@
+# Build and publish a Docker image.
+name: Build and publish docker images
+
+on:
+  push:
+    branches: ["main"]
+    # Publish semver tags as releases.
+    tags: ["v*.*.*"]
+  pull_request:
+    branches: ["main"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  UV_VERSION: 0.9
+  PYTHON_VERSION: 3.12
+  JUPYTER_VERSION: "2025-04-14"
+  # If you want to include custom documentation, create a fork of the repo below and link the forked repo here
+  NOMAD_DOCS_REPO: https://github.com/FAIRmat-NFDI/nomad-docs.git
+  # If you want to skip the tests for some plugins, add them to the list below
+  PLUGIN_TESTS_PLUGINS_TO_SKIP: |
+    workflowparsers
+    nomad_porous_materials
+    simulationworkflowschema
+    databaseparsers
+    soapnormalizer
+    eelsdbparser
+    atomisticparsers
+    nomad_aitoolkit
+    pynxtools_igor
+    electronicparsers
+    nomad_simulations
+
+permissions:
+  contents: write
+  packages: write
+  attestations: write
+  id-token: write
+
+jobs:
+  # Job 1: Update Lock File
+  update-lockfile:
+    name: Update Python Lock File
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          submodules: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: ${{ env.UV_VERSION }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Update lock file
+        run: uv lock
+
+      # Commits any changes made to the lockfile
+      - name: Commit lock file changes
+        if: github.ref_type != 'tag'
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git add uv.lock
+          if [[ `git status --porcelain` ]]; then
+            git commit -m "Update lockfile"
+            git push origin -o ci.skip # prevent triggering the pipeline again
+          fi
+
+  # Job 2: Run unit tests for all of the plugin
+  plugin_unit_tests:
+    name: Run plugin unit tests
+    needs: update-lockfile
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [1, 2]
+    env:
+      PLUGIN_TESTS_CI_NODE_TOTAL: 2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          submodules: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: ${{ env.UV_VERSION }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Run plugin tests
+        env:
+          PLUGIN_TESTS_CI_NODE_INDEX: ${{ matrix.group }}
+        run: |
+          # replace the yaml list with a string, use a `,` to separate the plugins
+          PLUGINS_STRING=$(echo "$PLUGIN_TESTS_PLUGINS_TO_SKIP" | tr '\n' ',' | sed 's/,$//')
+          uv run \
+            --extra plugins \
+            --with "nomad-plugin-tests" \
+            nomad-plugin-tests --plugins-to-skip "$PLUGINS_STRING"
+
+  # Job 3: Build and Push Docker Image
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: update-lockfile
+
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - app
+          - jupyter
+          # - cpu-action
+          # - gpu-action
+        include:
+          - service: app
+            target: final
+            image_suffix: ""
+          - service: jupyter
+            target: jupyter
+            image_suffix: /jupyter
+          # - service: gpu-action
+          #   target: gpu_action_final
+          #   image_suffix: /gpu-action
+          # - service: cpu-action
+          #   target: cpu_action_final
+          #   image_suffix: /cpu-action
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          submodules: true
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository }}${{ matrix.image_suffix }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          build-args: |
+            UV_VERSION=${{ env.UV_VERSION }}
+            PYTHON_VERSION=${{ env.PYTHON_VERSION }}
+            NOMAD_DOCS_REPO=${{ env.NOMAD_DOCS_REPO }}
+            JUPYTER_VERSION=${{ env.JUPYTER_VERSION }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          target: ${{ matrix.target }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Set image output
+        run: |
+          FIRST_TAG=$(echo "${{ steps.meta.outputs.tags }}" | head -n1)
+          echo "${{ matrix.service }}_IMAGE=$FIRST_TAG" >> $GITHUB_ENV
+
+    outputs:
+      app_image: ${{ env.app_IMAGE }}
+      jupyter_image: ${{ env.jupyter_IMAGE }}
+
+  # Job 4: Run example upload tests and entrypoint tests
+  run_tests:
+    name: Run example upload tests and entrypoint tests
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      APP_IMAGE: ${{ needs.build.outputs.app_image }}
+      JUPYTER_IMAGE: ${{ needs.build.outputs.jupyter_image }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          submodules: true
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Start containers and check app/jupyter container health
+        working-directory: tests
+        run: |
+          if ! docker compose up -d --quiet-pull --wait; then
+            echo "Containers failed health check."
+            echo "Logs for app:"
+            docker logs app
+            echo "Logs for jupyter:"
+            docker logs jupyter
+            exit 1
+          fi
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: ${{ env.UV_VERSION }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Run tests
+        working-directory: tests
+        run: |
+          export PLUGINS_STRING=$(echo "$PLUGIN_TESTS_PLUGINS_TO_SKIP" | tr '\n' ',' | sed 's/,$//')
+          uv run --extra plugins pytest -p no:warnings -sv
