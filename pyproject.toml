@@ -58,7 +58,9 @@ plugins = [
 #  "nomad-parser-plugins-atomistic>=1.0",
 #  "nomad-parser-plugins-workflow>=1.0",
 #  "nomad-parser-plugins-database>=1.0",
-  "nomad-battery-database @ git+https://github.com/FAIRmat-NFDI/nomad-battery-database.git",
+#  "nomad-battery-database @ git+https://github.com/FAIRmat-NFDI/nomad-battery-database.git", # Uday's plugin
+  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git",
+
 ]
 jupyter = ["jupyter-events"]
 gpu-action = []
