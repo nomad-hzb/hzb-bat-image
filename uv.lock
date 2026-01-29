@@ -3509,7 +3509,7 @@ wheels = [
 [[package]]
 name = "nomad-battery-space"
 version = "0.1.0"
-source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#b9ed3ad0044759a23eab4f34d9cbf21a5c22fa20" }
+source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#c1313f62ca4ed1dbd6eee30e896ead283b68a0dc" }
 dependencies = [
     { name = "nomad-lab" },
 ]
