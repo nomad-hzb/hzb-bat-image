@@ -1,4 +1,4 @@
-[build-system]
+s[build-system]
 requires = ["setuptools>=64", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
@@ -22,7 +22,7 @@ requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
   "nomad-lab[parsing, infrastructure]>=1.4.0",
-  "setuptools",
+  "setuptools<80.0",
 ]
 
 
