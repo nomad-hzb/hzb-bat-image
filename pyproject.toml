@@ -75,9 +75,6 @@ extra-index-url = [
 constraint-dependencies = ["hyperspy>=1.7.6"]
 prerelease = "explicit"
 
-[tool.uv.extra-build-dependencies]
-flatdict = ["pkg_resources"]
-
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
