@@ -74,6 +74,7 @@ extra-index-url = [
 ]
 constraint-dependencies = ["hyperspy>=1.7.6"]
 prerelease = "explicit"
+extra-build-dependencies = { flatdict = ["setuptools<82.0.0"] }
 
 
 [tool.setuptools.packages.find]
