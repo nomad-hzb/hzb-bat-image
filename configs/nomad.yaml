@@ -7,9 +7,9 @@ services:
   api_secret: 'pq63hoNjI0ItKGNquS5DjbLUhea1Jy5x'
 
 fs:
-  north_home_external: "/nfs/qumulo-a/nomad05/.nomad_oasis_storage_nomad05/.volumes/fs/north/users"
-  public_external: "/nfs/qumulo-a/nomad05/.nomad_oasis_storage_nomad05/.volumes/fs/public"
-  staging_external: "/nfs/qumulo-a/nomad05/.nomad_oasis_storage_nomad05/.volumes/fs/staging"
+  north_home_external: "/nfs/qumulo-a/nomad05/.nomad_hzb_bat_storage_nomad05/.volumes/fs/north/users"
+  public_external: "/nfs/qumulo-a/nomad05/.nomad_hzb_bat_storage_nomad05/.volumes/fs/public"
+  staging_external: "/nfs/qumulo-a/nomad05/.nomad_hzb_bat_storage_nomad05/.volumes/fs/staging"
   
 logstash:
   enable: false
