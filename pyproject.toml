@@ -62,7 +62,14 @@ plugins = [
   "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git",
 
 ]
-jupyter = ["jupyter-events"]
+jupyter = [
+    "voila",
+    "ipywidgets",
+    "ipyaggrid",
+    "ipyvuetify",
+    "pyvis",
+]
+
 gpu-action = []
 cpu-action = []
 
