@@ -3846,7 +3846,7 @@ wheels = [
 
 [[package]]
 name = "nomad-parser-plugins-atomistic"
-version = "1.0.10"
+version = "1.0.11"
 source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
 dependencies = [
     { name = "ase" },
@@ -3864,9 +3864,9 @@ dependencies = [
     { name = "scipy", version = "1.15.3", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
     { name = "scipy", version = "1.16.2", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/92/f3/77b6840271cbd119238fc99dfcb382e552f6f90c2d9e4da3dd656b40a8d5/nomad_parser_plugins_atomistic-1.0.10.tar.gz", hash = "sha256:89d160beff0b75338647ce5c272e2c20fead67f3051d79e2c1d308358b6c2fcb", size = 94054032, upload-time = "2025-11-04T14:22:02.902Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/65/3c/4fe6e21a7fc14214892031129bf8dcc8c9b0074476339e5a5f46b8c30a64/nomad_parser_plugins_atomistic-1.0.11.tar.gz", hash = "sha256:29c7447d5107ccbdbef0fbe5c88e46371089d8b2ed2a3db22094678480326c6f", size = 94054012, upload-time = "2026-03-16T18:32:15.515Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1c/8f/56cc0a956f39c33d6e32b155799df9900dd5bdfd29273266314413ac39b1/nomad_parser_plugins_atomistic-1.0.10-py3-none-any.whl", hash = "sha256:f6cd5419ef8427eb9ee271b417f4ad5979643518eafe4dbaf1f5d99806670741", size = 189615, upload-time = "2025-11-04T14:22:00.087Z" },
+    { url = "https://files.pythonhosted.org/packages/f0/0f/7e3a7d7f4424f742acba078c3bd323089f3572546a1d21c59899c1314c72/nomad_parser_plugins_atomistic-1.0.11-py3-none-any.whl", hash = "sha256:21c75c04863831590688edb0bbf6402f46f704a5b906843da5595868b8302446", size = 189559, upload-time = "2026-03-16T18:32:12.628Z" },
 ]
 
 [[package]]
