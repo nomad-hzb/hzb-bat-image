@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:main
+    image: ghcr.io/nomad-hzb/hzb-bat-image:pr-20
 
   worker:
     image: ghcr.io/nomad-hzb/hzb-bat-image:main
@@ -12,5 +12,5 @@ services:
     image: ghcr.io/nomad-hzb/hzb-bat-image:main
 
   jupyterlab_image:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:main
+    image: ghcr.io/nomad-hzb/hzb-bat-image:pr-20
     

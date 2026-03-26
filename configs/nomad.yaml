@@ -2,14 +2,14 @@ services:
   api_host: 'localhost'
   api_base_path: '/nomad-oasis'
   upload_limit: 1000
-  admin_user_id: 'e2796594-6a85-4a0b-a7ae-5862505c24d7'
+  admin_user_id: 'see NOMAD_SERVICES_ADMIN_USER_ID value in .env'
   upload_members_group_search_enabled: true
-  api_secret: 'pq63hoNjI0ItKGNquS5DjbLUhea1Jy5x'
+  api_secret: 'see NOMAD_SERVICES_API_SECRET value in .env'
 
 fs:
-  north_home_external: "/nfs/qumulo-a/nomad05/.nomad_hzb_bat_storage_nomad05/.volumes/fs/north/users"
-  public_external: "/nfs/qumulo-a/nomad05/.nomad_hzb_bat_storage_nomad05/.volumes/fs/public"
-  staging_external: "/nfs/qumulo-a/nomad05/.nomad_hzb_bat_storage_nomad05/.volumes/fs/staging"
+  north_home_external: "see NOMAD_FS_NORTH_HOME_EXTERNAL value in .env"
+  public_external: "see NOMAD_FS_PUBLIC_EXTERNAL value in .env"
+  staging_external: "see NOMAD_FS_STAGING_EXTERNAL value in .env"
   
 logstash:
   enable: false
@@ -19,7 +19,7 @@ oasis:
   uses_central_user_management: true
 
 north:
-  jupyterhub_crypt_key: '271b13f3ef7023b06277faa49ff4112a572f2f85b52e4c6967511492f036a92d'
+  jupyterhub_crypt_key: 'see NOMAD_NORTH_JUPYTERHUB_CRYPT_KEY value in .env'
   enabled: true
   tools:
     include:
@@ -52,9 +52,9 @@ north:
             email: michael.goette@helmholtz-berlin.de
 
 meta:
-  deployment: 'oasis'
-  deployment_url: 'https://nomad-ce-iees.helmholtz-berlin.de'
-  maintainer_email: 'michael.goette@helmholtz-berlin.de'
+  deployment: 'see NOMAD_META_DEPLOYMENT value in .env'
+  deployment_url: 'see NOMAD_META_DEPLOYMENT_URL value in .env'
+  maintainer_email: 'see NOMAD_META_MAINTAINER_EMAIL value in .env'
 
 mongo:
     db_name: nomad_oasis_v1
@@ -68,13 +68,15 @@ ui:
     title: "NOMAD Batteries HZB"
   unit_systems: 
     selected: "SI"
-       
       
 plugins:
 #   # We only include our schema here. Without the explicit include, all plugins will be
 #   # loaded. Many build in plugins require more dependencies. Install nomad-lab[parsing]
 #   # to make all default plugins work.
   entry_points:
-    exclude: []
-    include: []
-
+    include: ["nomad_battery_space.schema_packages:bat_schema_package",
+              "nomad_battery_space.schema_packages:bat_cell_assembly_package",
+              "apps/1_all/1_entries",
+              "apps/3_experiment/1_eln",
+              "nomad_battery_space.apps:app_entry_point",
+             ]
