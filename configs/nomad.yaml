@@ -79,4 +79,9 @@ plugins:
               "apps/1_all/1_entries",
               "apps/3_experiment/1_eln",
               "nomad_battery_space.apps:app_entry_point",
+              "pynxtools.nomad.entrypoints:nexus_parser",            
+              "pynxtools.nomad.entrypoints:nexus_schema",
+              "pynxtools.nomad.entrypoints:nexus_data_converter",
+              "pynxtools.nomad.entrypoints:nexus_app",
+              "pynxtools.nomad.entrypoints:simple_nexus_example",
              ]
