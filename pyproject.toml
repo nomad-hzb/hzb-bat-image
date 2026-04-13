@@ -73,7 +73,7 @@ jupyter = [
 gpu-action = []
 cpu-action = []
 
-dev = ["nomad-lab[parsing, infrastructure, dev]>=1.3.4"]
+dev = ["nomad-lab[parsing, infrastructure, dev]>=1.4.1"]
 
 [tool.uv]
 extra-index-url = [
