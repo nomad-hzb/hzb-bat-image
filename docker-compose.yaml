@@ -389,6 +389,8 @@ services:
         docker cp /assets/nomad.png nomad_oasis_app:/app/run/gui_configured/nomad.png
         echo "copying nomad-oasis.png"
         docker cp /assets/nomad-oasis.png nomad_oasis_app:/app/run/gui_configured/nomad-oasis.png
+        echo "copying about picture"
+        docker cp /assets/battery-logo.svg nomad_oasis_app:/app/run/gui_configured/static/media/about.a4d06242.svg
         echo "copier is finished"
     depends_on:
       app:
