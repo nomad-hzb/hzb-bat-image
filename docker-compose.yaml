@@ -261,6 +261,10 @@ services:
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
       - ${DOCKER_COMPOSE_FS_VOLUME}:/app/.volumes/fs
+      - ./assets/favicon.ico:/app/run/gui_configured/favicon.png
+      - ./assets/favicon-hres.png:/app/run/gui_configured/favicon-hres.png
+      - ./assets/nomad.png:/app/run/gui_configured/nomad.png
+      - ./assets/nomad-oasis.png:/app/run/gui_configured/nomad-oasis.png
     command: ./run.sh
     healthcheck:
       test:
