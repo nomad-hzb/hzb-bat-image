@@ -382,7 +382,7 @@ services:
       docker cp /assets/nomad.png app:/app/run/gui_configured/nomad.png
       docker cp /assets/nomad-oasis.png app:/app/run/gui_configured/nomad-oasis.png
     depends_on:
-      - app:
+      app:
         condition: service_healthy
 
 volumes:
