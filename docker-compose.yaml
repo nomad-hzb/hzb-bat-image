@@ -261,10 +261,6 @@ services:
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
       - ${DOCKER_COMPOSE_FS_VOLUME}:/app/.volumes/fs
-      - ./assets/favicon.ico:/app/run/gui_configured/favicon.png
-      - ./assets/favicon-hres.png:/app/run/gui_configured/favicon-hres.png
-      - ./assets/nomad.png:/app/run/gui_configured/nomad.png
-      - ./assets/nomad-oasis.png:/app/run/gui_configured/nomad-oasis.png
     command: ./run.sh
     healthcheck:
       test:
@@ -373,6 +369,22 @@ services:
   #   entrypoint: ["true"]
   #   deploy:
   #     replicas: 0 # Ensures the service isn't started
+
+  assets-copy:
+    image: docker:cli
+    volumes: 
+      - ./assets:/assets
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: sh -C "
+      sleep 10 &&
+      docker cp /assets/favicon.ico app:/app/run/gui_configured/favicon.ico &&
+      docker cp /assets/favicon-hres.png:/app/run/gui_configured/favicon-hres.png &&
+      docker cp /assets/nomad.png:/app/run/gui_configured/nomad.png &&
+      docker cp /assets/nomad-oasis.png:/app/run/gui_configured/nomad-oasis.png
+    "
+    depends_on:
+      - app
+      
 
 volumes:
   mongo:
