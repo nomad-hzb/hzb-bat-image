@@ -379,7 +379,7 @@ services:
       - sh
       - -c
       - |
-        sleep 10 &&
+        sleep 10
         docker cp /assets/favicon.ico nomad_oasis_app:/app/run/gui_configured/favicon.ico
         docker cp /assets/favicon-hres.png nomad_oasis_app:/app/run/gui_configured/favicon-hres.png
         docker cp /assets/nomad.png nomad_oasis_app:/app/run/gui_configured/nomad.png
