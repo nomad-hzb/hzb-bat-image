@@ -78,6 +78,8 @@ RUN apt-get update \
       zip \
       unzip \
       git \
+      netcdf-bin \
+      libnetcdf-dev \
  && rm -rf /var/lib/apt/lists/*
 
 # Install UV
@@ -184,8 +186,6 @@ RUN apt-get update \
       zip \
       unzip \
       git \
-      netcdf-bin \
-      libnetcdf-dev \
       # clean cache and logs
       && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
 
