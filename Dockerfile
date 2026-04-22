@@ -48,8 +48,6 @@ RUN apt-get update \
        unzip \
        nodejs \
        npm \
-       netcdf-bin \
-       libnetcdf-dev \
        && npm install -g configurable-http-proxy@^4.2.0 \
        # clean cache and logs
        && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
@@ -224,6 +222,8 @@ RUN apt-get update \
       texlive-xetex \
       texlive-fonts-recommended \
       texlive-plain-generic \
+      netcdf-bin \
+      libnetcdf-dev \
       # clean cache and logs
       && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
 
