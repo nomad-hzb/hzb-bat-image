@@ -234,8 +234,7 @@ RUN apt-get update \
       netcdf-bin \
       libnetcdf-dev \
       # clean cache and logs
-      && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm \
-      && pip install netCDF4
+      && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
 
 
 # Switch back to jovyan to avoid accidental container runs as root
