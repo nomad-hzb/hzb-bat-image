@@ -78,6 +78,8 @@ RUN apt-get update \
       zip \
       unzip \
       git \
+      netcdf-bin \
+      libnetcdf-dev \
  && rm -rf /var/lib/apt/lists/*
 
 # Install UV
