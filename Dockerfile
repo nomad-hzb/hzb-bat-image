@@ -53,7 +53,7 @@ RUN apt-get update \
        && npm install -g configurable-http-proxy@^4.2.0 \
        # clean cache and logs
        && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm \
-       && pip install netCDF4
+       && pip install --no-cache-dir netCDF4
 
 # Activate the virtualenv in the container
 # See here for more information:
@@ -84,7 +84,7 @@ RUN apt-get update \
       netcdf-bin \
       libnetcdf-dev \
  && rm -rf /var/lib/apt/lists/* \
- && pip install netCDF4
+ && pip install --no-cache-dir netCDF4
 
 # Install UV
 COPY --from=uv_image /uv /bin/uv
@@ -194,7 +194,7 @@ RUN apt-get update \
       libnetcdf-dev \
       # clean cache and logs
       && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm \
-      && pip install netCDF4
+      && pip install --no-cache-dir netCDF4
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}
