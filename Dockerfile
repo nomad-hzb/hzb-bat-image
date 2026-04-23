@@ -54,6 +54,8 @@ RUN apt-get update \
        # clean cache and logs
        && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
 
+RUN pip install netCDF4
+
 # Activate the virtualenv in the container
 # See here for more information:
 # https://pythonspeed.com/articles/multi-stage-docker-python/
@@ -83,6 +85,8 @@ RUN apt-get update \
       netcdf-bin \
       libnetcdf-dev \
  && rm -rf /var/lib/apt/lists/*
+
+ RUN pip install netCDF4
 
 # Install UV
 COPY --from=uv_image /uv /bin/uv
@@ -193,6 +197,8 @@ RUN apt-get update \
       # clean cache and logs
       && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
 
+RUN pip install netCDF4
+
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}
 WORKDIR "${HOME}"
@@ -232,6 +238,8 @@ RUN apt-get update \
       libnetcdf-dev \
       # clean cache and logs
       && rm -rf /var/lib/apt/lists/* /var/log/* /var/tmp/* ~/.npm
+
+RUN pip install netCDF4
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}
