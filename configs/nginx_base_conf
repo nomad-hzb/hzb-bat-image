@@ -35,6 +35,18 @@ location @redirect_to_index {
     proxy_pass http://app:8000;
 }
 
+location /nomad-oasis/docs/ {
+    # This is added to force a redirect (302) when 404 otherwise
+    # the assets are not loaded correctly (a broken page rendered)
+    proxy_intercept_errors on;
+    error_page 404 = @docs404redirect;
+    proxy_pass http://app:8000;
+}
+
+location @docs404redirect {
+    return 302 /nomad-oasis/docs/404.html;
+}
+
 location ~ \/gui\/(service-worker\.js|meta\.json)$ {
     add_header Last-Modified $date_gmt;
     add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
