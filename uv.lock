@@ -4187,7 +4187,7 @@ wheels = [
 [[package]]
 name = "nomad-baseclasses"
 version = "1.0.0"
-source = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git#9cd08ad4a03d661d98f847a52dbd3ebb628a4270" }
+source = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git#6ad81b3a82e5c02a4943dc213430d91538362df9" }
 dependencies = [
     { name = "chardet" },
     { name = "hdf5plugin" },
