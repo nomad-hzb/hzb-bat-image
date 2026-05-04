@@ -4217,6 +4217,7 @@ dependencies = [
 name = "nomad-distribution"
 source = { editable = "." }
 dependencies = [
+    { name = "nomad-baseclasses" },
     { name = "nomad-lab", extra = ["infrastructure"] },
     { name = "setuptools" },
 ]
@@ -4233,7 +4234,6 @@ jupyter = [
     { name = "voila" },
 ]
 plugins = [
-    { name = "nomad-baseclasses" },
     { name = "nomad-battery-space" },
     { name = "nomad-normalizer-plugin-simulation-workflow" },
     { name = "nomad-normalizer-plugin-system" },
@@ -4256,7 +4256,7 @@ requires-dist = [
     { name = "ipyaggrid", marker = "extra == 'jupyter'" },
     { name = "ipyvuetify", marker = "extra == 'jupyter'" },
     { name = "ipywidgets", marker = "extra == 'jupyter'" },
-    { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
+    { name = "nomad-baseclasses", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
     { name = "nomad-battery-space", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-battery-space.git" },
     { name = "nomad-lab", extras = ["dev", "infrastructure", "parsing"], marker = "extra == 'dev'", specifier = ">=1.3.4" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.1" },
