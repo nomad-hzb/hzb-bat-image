@@ -4831,22 +4831,7 @@ dependencies = [
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/68/2b/0ecaec3d693ffb57140bdb565aa8480bf6dede70f0f281bef0cdbb010a04/nomad_parser_plugins_atomistic-1.0.12.tar.gz", hash = "sha256:3ead5953c766de262b9d1958765a112d2b23eb74e03e7cc5f791adb5f1ff5685", size = 94053644, upload-time = "2026-03-30T09:21:14.096Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f0/0f/7e3a7d7f4424f742acba078c3bd323089f3572546a1d21c59899c1314c72/nomad_parser_plugins_atomistic-1.0.11-py3-none-any.whl", hash = "sha256:21c75c04863831590688edb0bbf6402f46f704a5b906843da5595868b8302446", size = 189559, upload-time = "2026-03-16T18:32:12.628Z" },
-]
-
-[[package]]
-name = "nomad-parser-plugins-database"
-version = "1.1.3"
-source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
-dependencies = [
-    { name = "nomad-lab" },
-    { name = "nomad-schema-plugin-run" },
-    { name = "nomad-schema-plugin-simulation-workflow" },
-    { name = "pydantic" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/77/32/3d7f9e353dbb97ab01bf32b8d0da68439b9f8c214e011a2942e9f4f74de2/nomad_parser_plugins_database-1.1.3.tar.gz", hash = "sha256:1f57bc391727f0543c42a2dd8b259823b0687ad208b2b2c56df086487af3ce80", size = 3333590, upload-time = "2025-11-03T14:08:27.359Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a4/c3/9fb61d76c5045f583801f92c7c66964e3665d89cdc11b753fd63f18c6e98/nomad_parser_plugins_database-1.1.3-py3-none-any.whl", hash = "sha256:1bef6d583432c08f292f4445cc90506588c55f7901258d59ece55154ad7ca17a", size = 18205, upload-time = "2025-11-03T14:08:25.861Z" },
+    { url = "https://files.pythonhosted.org/packages/f0/0f/7e3a7d7f4424f742acba078c3bd323089f3572546a1d21c59899c1314c72/nomad_parser_plugins_atomistic-1.0.12-py3-none-any.whl", hash = "sha256:21c75c04863831590688edb0bbf6402f46f704a5b906843da5595868b8302446", size = 189559, upload-time = "2026-03-16T18:32:12.628Z" },
 ]
 
 [[package]]
@@ -4884,28 +4869,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/77/32/3d7f9e353dbb97ab01bf32b8d0da68439b9f8c214e011a2942e9f4f74de2/nomad_parser_plugins_database-1.1.3.tar.gz", hash = "sha256:1f57bc391727f0543c42a2dd8b259823b0687ad208b2b2c56df086487af3ce80", size = 3333590, upload-time = "2025-11-03T14:08:27.359Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a4/c3/9fb61d76c5045f583801f92c7c66964e3665d89cdc11b753fd63f18c6e98/nomad_parser_plugins_database-1.1.3-py3-none-any.whl", hash = "sha256:1bef6d583432c08f292f4445cc90506588c55f7901258d59ece55154ad7ca17a", size = 18205, upload-time = "2025-11-03T14:08:25.861Z" },
-]
-
-[[package]]
-name = "nomad-parser-plugins-electronic"
-version = "1.0.17"
-source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
-dependencies = [
-    { name = "h5py" },
-    { name = "lxml" },
-    { name = "netcdf4" },
-    { name = "nomad-lab" },
-    { name = "nomad-parser-plugins-simulation" },
-    { name = "nomad-schema-plugin-run" },
-    { name = "nomad-schema-plugin-simulation-workflow" },
-    { name = "numpy", version = "2.2.6", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.3.5", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.11'" },
-    { name = "pydantic" },
-    { name = "pyyaml" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/8c/aa/b6d4026202ec88dd7f361fa869dce50e11d337fffaa8d4ee2d9c0287ffb9/nomad_parser_plugins_electronic-1.0.17.tar.gz", hash = "sha256:74c570680356eb73789f4a0a2e8ed9130d7d8beb6b09cf159a92b65afdbc9fed", size = 84075457, upload-time = "2026-04-29T13:45:36.985Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/dc/ff9ee7d7af8b22d20c404643187367c5abefe189b5cd44f25eb70ffb7139/nomad_parser_plugins_electronic-1.0.17-py3-none-any.whl", hash = "sha256:c065458f295f17be797383aa2fc1e53cc45335793b9af5b8e5426a18944ad9f1", size = 1182266, upload-time = "2026-04-29T13:45:34.17Z" },
 ]
 
 [[package]]
