@@ -145,11 +145,11 @@ services:
       retries: 5
       start_period: 15s
     deploy:
-      replicas: 8
+      replicas: ${WORKER_REPLICA_COUNT}
       resources:
         limits:
-          cpus: "12.0" # Maximum 4 CPU cores
-          memory: 24G # Maximum 8GB RAM
+          cpus: ${WORKER_MAX_CPU_COUNT} # 2.0 CPU cores for local, 12.0 for server
+          memory: ${WORKER_MAX_MEMORY} # 2G for local, 24G for server
       restart_policy:
         condition: on-failure
         delay: 5s
