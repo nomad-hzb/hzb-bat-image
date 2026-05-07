@@ -21,8 +21,10 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
+  "nomad-baseclasses",
   "nomad-lab[parsing, infrastructure]==1.4.1",
   "setuptools",
+  "netCDF4",
 ]
 
 
@@ -81,6 +83,9 @@ extra-index-url = [
 ]
 constraint-dependencies = ["hyperspy>=1.7.6", "flatdict>=4.1.0"]
 prerelease = "explicit"
+
+[tool.uv.sources]
+nomad-baseclasses = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git" }
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
