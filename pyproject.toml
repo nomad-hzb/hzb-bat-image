@@ -24,6 +24,7 @@ dependencies = [
   "nomad-baseclasses",
   "nomad-lab[parsing, infrastructure]==1.4.1",
   "setuptools",
+  "netCDF4",
 ]
 
 
