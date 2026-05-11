@@ -4214,17 +4214,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/cd/10/c52f12297965938d9b9be666ea1f9d8340c2aea31d6909d90aa650847248/netcdf4-1.7.2-cp311-abi3-win_amd64.whl", hash = "sha256:999bfc4acebf400ed724d5e7329e2e768accc7ee1fa1d82d505da782f730301b", size = 7148514, upload-time = "2025-10-13T18:32:33.121Z" },
 ]
 
-
-[[package]]
-name = "nomad-battery-space"
-version = "0.1.0"
-source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#fc4ba8ec6963e2ed67477617d16ce2039591ff0b" }
-dependencies = [
-    { name = "nomad-baseclasses" },
-    { name = "nomad-lab" },
-]
-
-
 [[package]]
 name = "networkx"
 version = "3.4.2"
@@ -4539,6 +4528,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "nomad-battery-space"
+version = "0.1.0"
+source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#fc4ba8ec6963e2ed67477617d16ce2039591ff0b" }
+dependencies = [
+    { name = "nomad-baseclasses" },
+    { name = "nomad-lab" },
+]
+
+[[package]]
 name = "nomad-distribution"
 source = { editable = "." }
 dependencies = [
@@ -4561,6 +4559,7 @@ jupyter = [
 ]
 plugins = [
     { name = "eelsdbconverter" },
+    { name = "nomad-battery-space" },
     { name = "nomad-normalizer-plugin-bandstructure" },
     { name = "nomad-normalizer-plugin-dos" },
     { name = "nomad-normalizer-plugin-simulation-workflow" },
@@ -4594,6 +4593,7 @@ requires-dist = [
     { name = "ipywidgets", marker = "extra == 'jupyter'" },
     { name = "netcdf4", specifier = "==1.7.2" },
     { name = "nomad-baseclasses", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
+    { name = "nomad-battery-space", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-battery-space.git" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = "==1.4.2" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.2" },
     { name = "nomad-normalizer-plugin-bandstructure", marker = "extra == 'plugins'", specifier = ">=1.0" },
