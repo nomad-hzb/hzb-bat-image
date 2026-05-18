@@ -13,4 +13,3 @@ services:
 
   jupyterlab_image:
     image: ghcr.io/nomad-hzb/hzb-bat-image:0.1.0
-
