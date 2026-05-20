@@ -1,15 +1,15 @@
 services:
   app:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:0.1.0
+    image: ghcr.io/nomad-hzb/hzb-bat-image:v0.1.0
 
   worker:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:0.1.0
+    image: ghcr.io/nomad-hzb/hzb-bat-image:v0.1.0
 
   north:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:0.1.0
+    image: ghcr.io/nomad-hzb/hzb-bat-image:v0.1.0
 
   logtransfer:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:0.1.0
+    image: ghcr.io/nomad-hzb/hzb-bat-image:v0.1.0
 
   jupyterlab_image:
-    image: ghcr.io/nomad-hzb/hzb-bat-image:0.1.0
+    image: ghcr.io/nomad-hzb/hzb-bat-image:v0.1.0
