@@ -4510,7 +4510,7 @@ wheels = [
 [[package]]
 name = "nomad-baseclasses"
 version = "1.0.0"
-source = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git#6ad81b3a82e5c02a4943dc213430d91538362df9" }
+source = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git#ecebb1020f17cdb50ec88ec89ca70f01c45ff850" }
 dependencies = [
     { name = "chardet" },
     { name = "hdf5plugin" },
@@ -4559,6 +4559,7 @@ jupyter = [
 ]
 plugins = [
     { name = "eelsdbconverter" },
+    { name = "nomad-baseclasses" },
     { name = "nomad-battery-space" },
     { name = "nomad-normalizer-plugin-bandstructure" },
     { name = "nomad-normalizer-plugin-dos" },
@@ -4593,6 +4594,7 @@ requires-dist = [
     { name = "ipywidgets", marker = "extra == 'jupyter'" },
     { name = "netcdf4", specifier = "==1.7.2" },
     { name = "nomad-baseclasses", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
+    { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
     { name = "nomad-battery-space", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-battery-space.git?rev=v0.1.0" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = "==1.4.2" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.2" },
