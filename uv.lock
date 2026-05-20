@@ -4530,7 +4530,7 @@ dependencies = [
 [[package]]
 name = "nomad-battery-space"
 version = "0.1.0"
-source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#fc4ba8ec6963e2ed67477617d16ce2039591ff0b" }
+source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git?rev=v0.1.0#fc4ba8ec6963e2ed67477617d16ce2039591ff0b" }
 dependencies = [
     { name = "nomad-baseclasses" },
     { name = "nomad-lab" },
@@ -4593,7 +4593,7 @@ requires-dist = [
     { name = "ipywidgets", marker = "extra == 'jupyter'" },
     { name = "netcdf4", specifier = "==1.7.2" },
     { name = "nomad-baseclasses", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
-    { name = "nomad-battery-space", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-battery-space.git" },
+    { name = "nomad-battery-space", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-battery-space.git?rev=v0.1.0" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = "==1.4.2" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.2" },
     { name = "nomad-normalizer-plugin-bandstructure", marker = "extra == 'plugins'", specifier = ">=1.0" },
