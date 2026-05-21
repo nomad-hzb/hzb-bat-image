@@ -4608,7 +4608,7 @@ requires-dist = [
     { name = "nomad-parser-plugins-atomistic", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-parser-plugins-database", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-parser-plugins-electronic", marker = "extra == 'plugins'", specifier = ">=1.0" },
-    { name = "nomad-parser-plugins-workflow", marker = "extra == 'plugins'", specifier = ">=1.0" },
+    { name = "nomad-parser-plugins-workflow", marker = "extra == 'plugins'", specifier = ">=1.1.14" },
     { name = "nomad-schema-plugin-run", marker = "extra == 'plugins'", specifier = ">=1.0.1" },
     { name = "nomad-schema-plugin-simulation-workflow", marker = "extra == 'plugins'", specifier = ">=1.0.1" },
     { name = "pynxtools", marker = "extra == 'plugins'", specifier = "==0.12.0" },
@@ -4888,7 +4888,7 @@ wheels = [
 
 [[package]]
 name = "nomad-parser-plugins-workflow"
-version = "1.1.12"
+version = "1.1.14"
 source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
 dependencies = [
     { name = "ase" },
@@ -4905,9 +4905,9 @@ dependencies = [
     { name = "xarray", version = "2025.6.1", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
     { name = "xarray", version = "2026.2.0", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2e/54/fc73c7a75eef037b66b1b2537ed248d59f7586b1621f0ed9dd2066db4ae4/nomad_parser_plugins_workflow-1.1.12.tar.gz", hash = "sha256:cb2304e72a3bc46b58e8f52fe63edfbf55324f4245d169fb760eae0b6d326140", size = 31960052, upload-time = "2025-10-31T17:10:18.121Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f3/f2/770f8f1a2af915c931dcb334637b099c4941c2da2b87e19fbd209d393e63/nomad_parser_plugins_workflow-1.1.14.tar.gz", hash = "sha256:05dd22f9c3cbe9268e1c694f4904cd69249d7233c5800a5680807ca627de41c1", size = 60594982, upload-time = "2026-05-11T09:39:50.949Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/24/21/110ccb827f4c4cc9143fdb1de109a1f7a9210bc3c084ee87eeb92ed49746/nomad_parser_plugins_workflow-1.1.12-py3-none-any.whl", hash = "sha256:6e121612859d8c4d22348a946ae0d24b235f8fd42e1fb344b656eb1e4e305cb4", size = 123744, upload-time = "2025-10-31T17:10:15.742Z" },
+    { url = "https://files.pythonhosted.org/packages/89/f5/2c763a475a8a5d7d21228ce7ff488f58262bd1eb88b8358b799e674b6cd7/nomad_parser_plugins_workflow-1.1.14-py3-none-any.whl", hash = "sha256:f42a94a505667604637f80f6ad355aa399d4674baf4de8276275ad11752b6815", size = 126929, upload-time = "2026-05-11T09:39:48.561Z" },
 ]
 
 [[package]]
