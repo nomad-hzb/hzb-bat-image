@@ -62,7 +62,7 @@ plugins = [
   "nomad-parser-plugins-workflow>=1.1.14",
   "nomad-parser-plugins-database>=1.0",
   "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git",
-  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git@v0.1.0",
+  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git",
 ]
 jupyter = [
     "voila",
