@@ -4536,7 +4536,7 @@ dependencies = [
 [[package]]
 name = "nomad-battery-space"
 version = "0.1.0"
-source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#3ff37236ef1ac91408e3004a454e46b5a1b34492" }
+source = { git = "https://github.com/nomad-hzb/nomad-battery-space.git#d5e7647484cb75424e73080f3c3fb24f8038be87" }
 dependencies = [
     { name = "nomad-baseclasses" },
     { name = "nomad-lab" },
