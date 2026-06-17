@@ -4611,7 +4611,7 @@ requires-dist = [
     { name = "nomad-parser-plugins-workflow", marker = "extra == 'plugins'", specifier = ">=1.1.14" },
     { name = "nomad-schema-plugin-run", marker = "extra == 'plugins'", specifier = ">=1.0.1" },
     { name = "nomad-schema-plugin-simulation-workflow", marker = "extra == 'plugins'", specifier = ">=1.0.1" },
-    { name = "pynxtools", marker = "extra == 'plugins'", specifier = "==0.12.0" },
+    { name = "pynxtools", marker = "extra == 'plugins'", specifier = "==0.14.1" },
     { name = "pynxtools-apm", marker = "extra == 'plugins'", specifier = ">=0.4.2" },
     { name = "pynxtools-ellips", marker = "extra == 'plugins'", specifier = ">=0.1.1" },
     { name = "pynxtools-em", marker = "extra == 'plugins'", specifier = ">=0.4.2" },
@@ -6623,20 +6623,23 @@ wheels = [
 
 [[package]]
 name = "pynxtools"
-version = "0.12.0"
+version = "0.14.1"
 source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
 dependencies = [
     { name = "anytree" },
     { name = "ase" },
+    { name = "blosc2" },
     { name = "cachetools" },
     { name = "click" },
     { name = "click-default-group" },
     { name = "h5py" },
+    { name = "hdf5plugin" },
     { name = "importlib-metadata" },
     { name = "lxml" },
     { name = "mergedeep" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
     { name = "numpy", version = "2.3.5", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "orjson" },
     { name = "pandas", version = "2.3.3", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
     { name = "pandas", version = "3.0.1", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "pint", version = "0.24.4", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
@@ -6647,9 +6650,9 @@ dependencies = [
     { name = "xarray", version = "2025.6.1", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version < '3.11'" },
     { name = "xarray", version = "2026.2.0", source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }, marker = "python_full_version >= '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/37/84/22fabe423ee233c7a1e2dbd0adb07f331d6f2541d26e1b79253e4099ca5b/pynxtools-0.12.0.tar.gz", hash = "sha256:256f5a87cde4b0b673f17df24a5ca0701f89a82e14e6b630c3515761c5d6dee2", size = 5363625, upload-time = "2025-10-17T16:21:49.155Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a4/05/8f479c6710836a2130286ccd119c2aaab368d6892a4c2e4354f2687e2fcb/pynxtools-0.14.1.tar.gz", hash = "sha256:406d71e8563fc50c2b2996606409b390e010a538f821db56bd1279cbff3722a2", size = 5350302, upload-time = "2026-06-12T09:20:28.913Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/b4/005eecd3794e5b882ab713188d16a65447d57ef738c86b7fe562d24126e9/pynxtools-0.12.0-py3-none-any.whl", hash = "sha256:ccae769db50e5e0467dea779b748111a6a6e5748d86aa7ba8d01b2457c8f8e7a", size = 5738386, upload-time = "2025-10-17T16:21:45.7Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/e7/3afdc5f3a2102273dc6c52ca6ecd42c0d8213eb77e1bfae318ccdaf7c33d/pynxtools-0.14.1-py3-none-any.whl", hash = "sha256:ff03d5f67dc5d9146665923741b10f9f70ed3104e6939651635be13c1c75c34a", size = 5732765, upload-time = "2026-06-12T09:20:27.206Z" },
 ]
 
 [[package]]
