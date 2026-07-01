@@ -38,7 +38,7 @@ plugins = [
   #"nomad-aitoolkit @ git+https://github.com/FAIRmat-NFDI/nomad-aitoolkit.git@b203f8eb28dc4b6771a39d5c5b7ad3d9d8583ac8",
   #"nomad-simulations==0.5.0",
   "nomad-north-jupyter>=0.2.5",
-  "pynxtools==0.12.0",
+  "pynxtools==0.15.0",
   "pynxtools-apm>=0.4.2",
   "pynxtools-ellips>=0.1.1",
   "pynxtools-em>=0.4.2",
