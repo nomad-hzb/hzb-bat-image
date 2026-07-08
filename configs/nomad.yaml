@@ -19,6 +19,8 @@ oasis:
   uses_central_user_management: true
 
 north:
+  enabled: true
+  enable_new_hub_api: true
   jupyterhub_crypt_key: 'see NOMAD_NORTH_JUPYTERHUB_CRYPT_KEY value in .env'
   enabled: true
   tools:
