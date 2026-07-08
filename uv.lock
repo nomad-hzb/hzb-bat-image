@@ -5324,7 +5324,7 @@ requires-dist = [
     { name = "nomad-baseclasses", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
     { name = "nomad-baseclasses", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-baseclasses.git" },
     { name = "nomad-battery-space", marker = "extra == 'plugins'", git = "https://github.com/nomad-hzb/nomad-battery-space.git?rev=v0.1.0" },
-    { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = ">=1.4.2" },
+    { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = ">=1.4.3.dev161" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = ">=1.4.3.dev161" },
     { name = "nomad-normalizer-plugin-bandstructure", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-normalizer-plugin-dos", marker = "extra == 'plugins'", specifier = ">=1.0" },

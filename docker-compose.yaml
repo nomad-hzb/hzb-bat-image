@@ -311,7 +311,7 @@ services:
       DOCKER_PREFIX: "nomad-oasis-north"
       DOCKER_NETWORK: "nomad_oasis_network"
     env_file:
-      - ./.env.north
+      - ./.env
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
       - ${DOCKER_COMPOSE_FS_VOLUME}:/app/.volumes/fs

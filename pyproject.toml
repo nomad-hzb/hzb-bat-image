@@ -21,7 +21,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
-  "nomad-lab[infrastructure]==1.4.3rc1",
+  "nomad-lab[parsing, infrastructure]==1.4.3rc1",
   "nomad-baseclasses",
   "setuptools",
   "netcdf4==1.7.2",
@@ -75,7 +75,7 @@ jupyter = [
 gpu-action = []
 cpu-action = []
 
-dev = ["nomad-lab[infrastructure, dev]==1.4.3rc1"]
+dev = ["nomad-lab[parsing, infrastructure, dev]==1.4.3rc1"]
 
 [tool.uv]
 extra-index-url = [
