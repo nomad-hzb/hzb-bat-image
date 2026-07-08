@@ -22,7 +22,7 @@ requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
   "nomad-baseclasses",
-  "nomad-lab[parsing, infrastructure]==1.4.2",
+  "nomad-lab[parsing, infrastructure]==1.4.3rc1",
   "setuptools",
   "netcdf4==1.7.2",
 ]
@@ -75,14 +75,15 @@ jupyter = [
 gpu-action = []
 cpu-action = []
 
-dev = ["nomad-lab[infrastructure, dev]==1.4.2"]
+dev = ["nomad-lab[parsing, infrastructure, dev]==1.4.3rc1"]
 
 [tool.uv]
 extra-index-url = [
   "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple",
 ]
 constraint-dependencies = ["hyperspy>=1.7.6", "flatdict>=4.1.0"]
-prerelease = "explicit"
+#prerelease = "explicit"
+prerelease = "if-necessary-or-explicit"
 
 [tool.uv.sources]
 nomad-baseclasses = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git" }
