@@ -78,7 +78,7 @@ plugins:
               "nomad_battery_space.schema_packages:hzb_bs_assembly_package",
               "apps/1_all/1_entries",
               "apps/3_experiment/1_eln",
-              "nomad_battery_space.apps:app_entry_point",
+              "nomad_battery_space.apps:hzb_bat_search_app_entry_point",
               "pynxtools.nomad.entrypoints:nexus_parser",            
               "pynxtools.nomad.entrypoints:nexus_schema",
               "pynxtools.nomad.entrypoints:nexus_data_converter",

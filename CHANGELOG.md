@@ -1,6 +1,23 @@
 # Changelog
 
-## 0.1.0
+All notable changes to this NOMAD oasis will be documented in this file.
+
+## [0.2.1] 
+
+- Minor bug fixes in the data schema
+
+## [0.2.0] 
+
+### Added
+
+- **New Data Model**: Complete refactoring with **3-tier electrode architecture**
+- **Search App Interface**: New search app with filter menus for battery data discovery
+
+### Changed
+- Reorganized helper classes and utilities structure
+- Dependencies: Pinned nomad-baseclasses to v1.0.1
+
+## [0.1.0]
 
 ### Added
 - Custom logos
@@ -12,3 +29,5 @@
     - Possibility to create PATs via api
     - ...
   - Schema extension for Voila (batch upload)
+
+### Initial Release of ``nomad-battery-space`` plugin
