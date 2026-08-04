@@ -5,6 +5,7 @@ All notable changes to this NOMAD oasis will be documented in this file.
 ## [0.2.3] 
 
 - Improved and refined search app
+- Fixed issues in the CI/CD github pipeline
 
 ## [0.2.2] 
 
