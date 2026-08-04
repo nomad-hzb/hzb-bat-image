@@ -2,6 +2,10 @@
 
 All notable changes to this NOMAD oasis will be documented in this file.
 
+## [0.2.3] 
+
+- Improved and refined search app
+
 ## [0.2.2] 
 
 - New Voila launching app for voila notebooks 
