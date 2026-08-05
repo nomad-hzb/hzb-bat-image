@@ -74,11 +74,12 @@ plugins:
 #   # loaded. Many build in plugins require more dependencies. Install nomad-lab[parsing]
 #   # to make all default plugins work.
   entry_points:
-    include: ["nomad_battery_space.schema_packages:bat_schema_package",
-              "nomad_battery_space.schema_packages:bat_cell_assembly_package",
+    include: ["nomad_battery_space.schema_packages:hzb_bs_package",
+              "nomad_battery_space.schema_packages:hzb_bs_assembly_package",
               "apps/1_all/1_entries",
               "apps/3_experiment/1_eln",
-              "nomad_battery_space.apps:app_entry_point",
+              "nomad_battery_space.apps:hzb_bat_search_app_entry_point",
+              "nomad_battery_space.apps:voila_finder_app_entry_point",
               "pynxtools.nomad.entrypoints:nexus_parser",            
               "pynxtools.nomad.entrypoints:nexus_schema",
               "pynxtools.nomad.entrypoints:nexus_data_converter",

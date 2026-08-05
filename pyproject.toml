@@ -21,7 +21,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
-  "nomad-baseclasses",
+  "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git@v1.0.1",
   "nomad-lab[parsing, infrastructure]==1.4.2",
   "setuptools",
   "netcdf4==1.7.2",
@@ -61,8 +61,8 @@ plugins = [
   "nomad-parser-plugins-atomistic>=1.0",
   "nomad-parser-plugins-workflow>=1.1.14",
   "nomad-parser-plugins-database>=1.0",
-  "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git",
-  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git@v0.1.0",
+  "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git@v1.0.1",
+  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git",
 ]
 jupyter = [
     "voila",
@@ -84,8 +84,8 @@ extra-index-url = [
 constraint-dependencies = ["hyperspy>=1.7.6", "flatdict>=4.1.0"]
 prerelease = "explicit"
 
-[tool.uv.sources]
-nomad-baseclasses = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git" }
+# [tool.uv.sources]
+# nomad-baseclasses = { git = "https://github.com/nomad-hzb/nomad-baseclasses.git" }
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
