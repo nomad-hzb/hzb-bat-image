@@ -63,6 +63,7 @@ plugins = [
   "nomad-parser-plugins-database>=1.0",
   "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git@v1.0.1",
   "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git@v0.2.3",
+  "nomad-north-invimod @ git+https://codebase.helmholtz.cloud/invimod/nomad-north-invimod.git@v0.0.1",
 ]
 jupyter = [
     "voila",

@@ -85,4 +85,10 @@ plugins:
               "pynxtools.nomad.entrypoints:nexus_data_converter",
               "pynxtools.nomad.entrypoints:nexus_app",
               "pynxtools.nomad.entrypoints:simple_nexus_example",
+              "nomad_north_invimod.north_tools:invimod",
              ]
+    options:
+      nomad_north_invimod.north_tools:invimod:
+        # No git tags published yet upstream, so the plugin's default image
+        # (":latest") doesn't exist in the registry yet - only ":main" does.
+        image: registry.hzdr.de/invimod/nomad-north-invimod:latest
