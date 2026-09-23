@@ -86,3 +86,7 @@ plugins:
               "pynxtools.nomad.entrypoints:nexus_app",
               "pynxtools.nomad.entrypoints:simple_nexus_example",
              ]
+
+north:
+  enabled: true
+  enable_new_hub_api: true
