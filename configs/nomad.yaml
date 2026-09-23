@@ -21,6 +21,7 @@ oasis:
 north:
   jupyterhub_crypt_key: 'see NOMAD_NORTH_JUPYTERHUB_CRYPT_KEY value in .env'
   enabled: true
+  enable_new_hub_api: true
   tools:
     include:
       - voila
@@ -86,7 +87,3 @@ plugins:
               "pynxtools.nomad.entrypoints:nexus_app",
               "pynxtools.nomad.entrypoints:simple_nexus_example",
              ]
-
-north:
-  enabled: true
-  enable_new_hub_api: true
