@@ -310,7 +310,17 @@ services:
       NOMAD_API_URL: "http://app:8000/nomad-oasis/api/v1"
       DOCKER_PREFIX: "nomad-oasis-north"
       DOCKER_NETWORK: "nomad_oasis_network"
+      NOMAD_SERVICE: nomad_oasis_north
+      NOMAD_NORTH_DOCKER_NETWORK: nomad_oasis_network
+      NOMAD_NORTH_HUB_CONNECT_IP: north
+      NOMAD_NORTH_HUB_IP: "0.0.0.0"
+      NOMAD_NORTH_HUB_HOST: north
+      NOMAD_SERVICES_API_HOST: app
+      NOMAD_FS_EXTERNAL_WORKING_DIRECTORY: "$PWD"
+      NOMAD_ELASTIC_HOST: elastic
+      NOMAD_MONGO_HOST: mongo
     env_file:
+      - ./.env
       - ./.env.north
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
