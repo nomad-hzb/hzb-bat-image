@@ -167,8 +167,9 @@ RUN mkdir -p /app/.volumes/fs \
  && chown -R nomad:${UID} /app \
  && chown -R nomad:${UID} /opt/venv \
  && mkdir nomad \
- && cp /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/jupyterhub_config.py nomad/
-
+ && cp /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/jupyterhub_config.py nomad/ \
+ && echo "c.OAuthenticator.refresh_pre_spawn = False" >> nomad/jupyterhub_config.py
+ # line before: since i could not pin the "oauthenticator<16.0.0" in toml dependencies we had to use the old way to start north tools
 
 USER nomad
 
