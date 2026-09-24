@@ -224,6 +224,9 @@ COPY --from=uv_image /uv /bin/uv
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    # Remove conda's pyzmq: its _zmq.cpython-312 extension would shadow the abi3 one installed by uv
+    rm -rf /opt/conda/lib/python3.12/site-packages/zmq \
+           /opt/conda/lib/python3.12/site-packages/pyzmq-*.dist-info \
     # Use inexact to avoid removing pre-installed packages in the environment
     # Use no-install-project to skip installing the current project (`nomad-distribution`)
     uv sync --extra plugins --extra jupyter --no-install-project --inexact
