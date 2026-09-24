@@ -264,6 +264,10 @@ USER ${NB_UID}
 WORKDIR "${HOME}"
 
 COPY --from=uv_image /uv /bin/uv
+# COPY merges into the base image's /opt/conda, so remove conda's pyzmq first;
+# its _zmq.cpython-312 extension would shadow the abi3 one installed by uv
+RUN rm -rf /opt/conda/lib/python3.12/site-packages/zmq \
+           /opt/conda/lib/python3.12/site-packages/pyzmq-*.dist-info
 COPY --from=jupyter_builder /opt/conda /opt/conda
 
 
