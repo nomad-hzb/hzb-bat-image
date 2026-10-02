@@ -25,6 +25,7 @@ dependencies = [
   "nomad-lab[parsing, infrastructure]==1.4.3",
   "setuptools",
   "netcdf4==1.7.2",
+  "nomad-gui==2.0.0b4.dev763+g6e6fb986a",
 ]
 
 [project.urls]

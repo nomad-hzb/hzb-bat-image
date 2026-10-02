@@ -24,7 +24,7 @@ location / {
 }
 
 location ~ /nomad-oasis\/?(gui)?$ {
-    rewrite ^ /nomad-oasis/gui/ permanent;
+    rewrite ^ /nomad-oasis/gui/v2/ permanent;
 }
 
 location /nomad-oasis/gui/ {
