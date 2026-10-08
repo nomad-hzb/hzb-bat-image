@@ -267,8 +267,9 @@ services:
     container_name: nomad_oasis_app
     environment:
       NOMAD_SERVICE: nomad_oasis_app
-      NOMAD_SERVICES_API_PORT: 80
-      NOMAD_SERVICES_API_HOST: 0.0.0.0
+      NOMAD_SERVICES_API_PORT: 443
+      NOMAD_SERVICES_HTTPS: "true"
+      NOMAD_SERVICES_API_HOST: ${NOMAD_HOSTNAME}
       NOMAD_FS_EXTERNAL_WORKING_DIRECTORY: "$PWD"
       NOMAD_ELASTIC_HOST: elastic
       NOMAD_MONGO_HOST: mongo

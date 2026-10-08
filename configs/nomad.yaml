@@ -86,4 +86,5 @@ plugins:
               "pynxtools.nomad.entrypoints:nexus_data_converter",
               "pynxtools.nomad.entrypoints:nexus_app",
               "pynxtools.nomad.entrypoints:simple_nexus_example",
+              "nomad_gui.apis:gui_api",
              ]
