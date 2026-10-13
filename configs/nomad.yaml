@@ -26,6 +26,7 @@ north:
     include:
       - voila
       - jupyter2
+      - invimod
     options:
       jupyter2:
         short_description: A jupyter webapp container with voila opens notebook
@@ -51,6 +52,18 @@ north:
         maintainer:
           - name: Michael Götte
             email: michael.goette@helmholtz-berlin.de
+      invimod:
+        short_description: A webapp container with invimod visualizer
+        description: A webapp container with invimod visualizer
+        image: registry.hzdr.de/invimod/nomad-north-invimod:v0.0.1
+        path_prefix: invimod
+        with_path: true
+        mount_path: /home/jovyan
+        file_extensions:
+          - nxs
+        maintainer:
+          - name: Marcus Lewerenz
+            email: marcus.lewerenz@helmholtz-berlin.de
 
 meta:
   deployment: 'see NOMAD_META_DEPLOYMENT value in .env'
