@@ -56,6 +56,7 @@ north:
         short_description: A webapp container with invimod visualizer
         description: A webapp container with invimod visualizer
         image: registry.hzdr.de/invimod/nomad-north-invimod:v0.0.1
+        default_url: /invimod/
         path_prefix: invimod
         with_path: true
         mount_path: /home/jovyan
