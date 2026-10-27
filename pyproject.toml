@@ -76,7 +76,7 @@ jupyter = [
 gpu-action = []
 cpu-action = []
 
-dev = ["nomad-lab[infrastructure, dev]==1.4.3"]
+dev = ["nomad-lab[infrastructure, dev]==2.0.0"]
 
 [tool.uv]
 extra-index-url = [
