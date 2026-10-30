@@ -162,6 +162,10 @@ COPY --chown=nomad:${UID} --from=builder /opt/venv /opt/venv
 COPY configs/nomad.yaml nomad.yaml
 COPY pyproject.toml uv.lock /opt/
 COPY --chown=nomad:${UID} --from=docs /app/built_docs /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/app/static/docs
+# Replace NOMAD's default pint unit definitions with the HZB-specific set.
+# Re-check configs/units/default_en.txt whenever nomad-lab is upgraded.
+COPY --chown=nomad:${UID} configs/units/default_en.txt /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/units/default_en.txt
+RUN python -c "from nomad.units import ureg; ureg('Ha'); ureg('mAh')"
 
 RUN mkdir -p /app/.volumes/fs \
  && chown -R nomad:${UID} /app \
@@ -181,11 +185,17 @@ VOLUME /app/.volumes/fs
 
 FROM final AS cpu_action_final
 
+ARG PYTHON_VERSION=3.12
+
 COPY --chown=nomad:${UID} --from=cpu_action_builder /opt/venv /opt/venv
+COPY --chown=nomad:${UID} configs/units/default_en.txt /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/units/default_en.txt
 
 FROM final AS gpu_action_final
 
+ARG PYTHON_VERSION=3.12
+
 COPY --chown=nomad:${UID} --from=gpu_action_builder /opt/venv /opt/venv
+COPY --chown=nomad:${UID} configs/units/default_en.txt /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/units/default_en.txt
 
 
 FROM quay.io/jupyter/base-notebook:${JUPYTER_VERSION} AS jupyter_builder
@@ -269,6 +279,7 @@ COPY --from=uv_image /uv /bin/uv
 RUN rm -rf /opt/conda/lib/python3.12/site-packages/zmq \
            /opt/conda/lib/python3.12/site-packages/pyzmq-*.dist-info
 COPY --from=jupyter_builder /opt/conda /opt/conda
+COPY configs/units/default_en.txt /opt/conda/lib/python3.12/site-packages/nomad/units/default_en.txt
 
 
 # Get rid ot the following message when you open a terminal in jupyterlab:
