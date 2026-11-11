@@ -18,9 +18,13 @@ oasis:
   is_oasis: true
   uses_central_user_management: true
 
+documentation:
+  url: https://nomad-hzb.github.io/nomad-battery-space
+  
 north:
   jupyterhub_crypt_key: 'see NOMAD_NORTH_JUPYTERHUB_CRYPT_KEY value in .env'
   enabled: true
+  enable_new_hub_api: false # because of problems during v1.4.3 merge, keeping old way
   tools:
     include:
       - voila
@@ -29,7 +33,7 @@ north:
       jupyter2:
         short_description: A jupyter webapp container with voila opens notebook
         description: A jupyter hub webapp container with voila installed.
-        image: ghcr.io/nomad-hzb/hzb-bat-image/jupyter:main
+        image: ghcr.io/nomad-hzb/hzb-bat-image/jupyter:pr-59
         path_prefix: lab/tree
         with_path: true
         mount_path: /home/jovyan
@@ -41,7 +45,7 @@ north:
       voila:
         short_description: A jupyter webapp container with voila opens voila
         description: A jupyter hub webapp container with voila installed.
-        image: ghcr.io/nomad-hzb/hzb-bat-image/jupyter:main
+        image: ghcr.io/nomad-hzb/hzb-bat-image/jupyter:pr-59
         path_prefix: voila/render
         with_path: true
         mount_path: /home/jovyan
@@ -76,6 +80,8 @@ plugins:
   entry_points:
     include: ["nomad_battery_space.schema_packages:hzb_bs_package",
               "nomad_battery_space.schema_packages:hzb_bs_assembly_package",
+              "nomad_battery_space.schema_packages:hzb_bs_measurement_package",
+              "nomad_battery_space.schema_packages:hzb_utilities_voila_notebook",
               "apps/1_all/1_entries",
               "apps/3_experiment/1_eln",
               "nomad_battery_space.apps:hzb_bat_search_app_entry_point",
@@ -84,5 +90,6 @@ plugins:
               "pynxtools.nomad.entrypoints:nexus_schema",
               "pynxtools.nomad.entrypoints:nexus_data_converter",
               "pynxtools.nomad.entrypoints:nexus_app",
-              "pynxtools.nomad.entrypoints:simple_nexus_example",
+              "pynxtools.nomad.entrypoints:simple_nexus_example",              
+              "nomad_gui.apis:gui_api",
              ]
