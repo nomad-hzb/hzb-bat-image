@@ -19,6 +19,7 @@ env:
   # If you want to include custom documentation, create a fork of the repo below and link the forked repo here
   NOMAD_DOCS_REPO: https://github.com/FAIRmat-NFDI/nomad-docs.git
   # If you want to skip the tests for some plugins, add them to the list below
+  # TODO: remove nomad_gui after update to next official nomad-lab release (template PR #303 merged)
   PLUGIN_TESTS_PLUGINS_TO_SKIP: |
     workflowparsers
     nomad_porous_materials
@@ -32,6 +33,7 @@ env:
     electronicparsers
     nomad_simulations
     pynxtools_em
+    nomad_gui
 
 permissions:
   contents: write
@@ -209,6 +211,7 @@ jobs:
       - name: Start containers and check app/jupyter container health
         working-directory: tests
         run: |
+          docker compose up -d --quiet-pull --wait
           if ! docker compose up -d --quiet-pull --wait; then
             echo "Containers failed health check."
             echo "Logs for app:"

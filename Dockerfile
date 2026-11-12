@@ -162,13 +162,18 @@ COPY --chown=nomad:${UID} --from=builder /opt/venv /opt/venv
 COPY configs/nomad.yaml nomad.yaml
 COPY pyproject.toml uv.lock /opt/
 COPY --chown=nomad:${UID} --from=docs /app/built_docs /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/app/static/docs
+# Replace NOMAD's default pint unit definitions with the HZB-specific set.
+# Re-check configs/units/default_en.txt whenever nomad-lab is upgraded.
+COPY --chown=nomad:${UID} configs/units/default_en.txt /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/units/default_en.txt
+RUN python -c "from nomad.units import ureg; ureg('Ha'); ureg('mAh')"
 
 RUN mkdir -p /app/.volumes/fs \
  && chown -R nomad:${UID} /app \
  && chown -R nomad:${UID} /opt/venv \
  && mkdir nomad \
- && cp /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/jupyterhub_config.py nomad/
-
+ && cp /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/jupyterhub_config.py nomad/ \
+ && echo "c.OAuthenticator.refresh_pre_spawn = False" >> nomad/jupyterhub_config.py
+ # line before: since i could not pin the "oauthenticator<16.0.0" in toml dependencies we had to use the old way to start north tools
 
 USER nomad
 
@@ -180,11 +185,17 @@ VOLUME /app/.volumes/fs
 
 FROM final AS cpu_action_final
 
+ARG PYTHON_VERSION=3.12
+
 COPY --chown=nomad:${UID} --from=cpu_action_builder /opt/venv /opt/venv
+COPY --chown=nomad:${UID} configs/units/default_en.txt /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/units/default_en.txt
 
 FROM final AS gpu_action_final
 
+ARG PYTHON_VERSION=3.12
+
 COPY --chown=nomad:${UID} --from=gpu_action_builder /opt/venv /opt/venv
+COPY --chown=nomad:${UID} configs/units/default_en.txt /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/units/default_en.txt
 
 
 FROM quay.io/jupyter/base-notebook:${JUPYTER_VERSION} AS jupyter_builder
@@ -223,9 +234,12 @@ COPY --from=uv_image /uv /bin/uv
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    # Remove conda's pyzmq: its _zmq.cpython-312 extension would shadow the abi3 one installed by uv
+    rm -rf /opt/conda/lib/python3.12/site-packages/zmq \
+           /opt/conda/lib/python3.12/site-packages/pyzmq-*.dist-info \
     # Use inexact to avoid removing pre-installed packages in the environment
     # Use no-install-project to skip installing the current project (`nomad-distribution`)
-    uv sync --extra plugins --extra jupyter --no-install-project --inexact
+    && uv sync --extra plugins --extra jupyter --no-install-project --inexact
 
 
 FROM quay.io/jupyter/base-notebook:${JUPYTER_VERSION} AS jupyter
@@ -260,7 +274,12 @@ USER ${NB_UID}
 WORKDIR "${HOME}"
 
 COPY --from=uv_image /uv /bin/uv
+# COPY merges into the base image's /opt/conda, so remove conda's pyzmq first;
+# its _zmq.cpython-312 extension would shadow the abi3 one installed by uv
+RUN rm -rf /opt/conda/lib/python3.12/site-packages/zmq \
+           /opt/conda/lib/python3.12/site-packages/pyzmq-*.dist-info
 COPY --from=jupyter_builder /opt/conda /opt/conda
+COPY configs/units/default_en.txt /opt/conda/lib/python3.12/site-packages/nomad/units/default_en.txt
 
 
 # Get rid ot the following message when you open a terminal in jupyterlab:
