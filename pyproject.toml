@@ -60,7 +60,7 @@ plugins = [
   "nomad-parser-plugins-workflow>=1.2.0",
   "nomad-parser-plugins-database>=1.1.3",
   "nomad-baseclasses @ git+https://github.com/nomad-hzb/nomad-baseclasses.git@v1.0.1",
-  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git@v0.2.4_nomad2.0.0compatibility3",
+  "nomad-battery-space @ git+https://github.com/nomad-hzb/nomad-battery-space.git@v0.2.5_nomad2.0.0compatibility1",
 ]
 jupyter = [
   "jupyter-events",
