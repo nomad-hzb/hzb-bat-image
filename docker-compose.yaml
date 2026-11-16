@@ -357,6 +357,7 @@ services:
         docker cp /assets/nomad-oasis.png nomad_oasis_app:/app/run/gui_configured/nomad-oasis.png
         echo "copying nomad-text.png"
         docker cp /assets/nomad-text.png nomad_oasis_app:/app/run/gui_configured/nomad-text.png
+        docker cp /assets/nomad-text.png nomad_oasis_app:/opt/venv/lib/python3.12/site-packages/nomad/app/static/gui/nomad-text.p
         echo "copier is finished"
     depends_on:
       app:
