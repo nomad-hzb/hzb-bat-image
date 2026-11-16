@@ -347,12 +347,18 @@ services:
       - |
         echo "copier startet. waiting..."
         sleep 10
-        docker cp -v /assets/favicon.ico nomad_oasis_app:/app/run/gui_configured/favicon.ico
-        docker cp -v /assets/favicon-hres.png nomad_oasis_app:/app/run/gui_configured/favicon-hres.png
-        docker cp -v /assets/nomad.png nomad_oasis_app:/app/run/gui_configured/nomad.png
-        docker cp -v /assets/nomad-oasis.png nomad_oasis_app:/app/run/gui_configured/nomad-oasis.png
-        docker cp -v /assets/nomad-text.png nomad_oasis_app:/app/run/gui_configured/nomad-text.png
-        docker cp -v /assets/nomad-text.png nomad_oasis_app:/opt/venv/lib/python3.12/site-packages/nomad/app/static/gui/nomad-text.p
+        echo "copying favicon"
+        docker cp /assets/favicon.ico nomad_oasis_app:/app/run/gui_configured/favicon.ico
+        echo "copying high res favicon"
+        docker cp /assets/favicon-hres.png nomad_oasis_app:/app/run/gui_configured/favicon-hres.png
+        echo "copying nomad.png"
+        docker cp /assets/nomad.png nomad_oasis_app:/app/run/gui_configured/nomad.png
+        echo "copying nomad-oasis.png"
+        docker cp /assets/nomad-oasis.png nomad_oasis_app:/app/run/gui_configured/nomad-oasis.png
+        echo "copying nomad-text.png"
+        docker cp /assets/nomad-text.png nomad_oasis_app:/app/run/gui_configured/nomad-text.png
+        docker cp /assets/nomad-text.png nomad_oasis_app:/opt/venv/lib/python3.12/site-packages/nomad/app/static/gui/nomad-text.png
+        echo "copier is finished"
     depends_on:
       app:
         condition: service_healthy
