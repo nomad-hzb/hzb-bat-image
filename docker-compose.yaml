@@ -273,7 +273,7 @@ services:
     environment:
       NOMAD_API_URL: "http://app:8000/backend/api/v1"
       BASE_URL: "/backend/north/"
-      OAUTH_CALLBACK_URL: "${NOMAD_HOSTNAME}/backend/north/hub/oauth_callback"
+      OAUTH_CALLBACK_URL: "${NOMAD_META_DEPLOYMENT_URL}/backend/north/hub/oauth_callback"
       DOCKER_PREFIX: "nomad-oasis-north"
       DOCKER_NETWORK: "nomad_oasis_network"
     env_file:
