@@ -310,15 +310,15 @@ services:
     deploy:
       replicas: 0 # Ensures the service isn't started
 
-  # one-off job for pulling the jupyterlab image
-  voila_image:
-    image: ghcr.io/fairmat-nfdi/nomad-north-voila:v0.1.15
-    platform: linux/amd64
-    container_name: nomad_voila_image
-    pull_policy: always
-    entrypoint: ["true"]
-    deploy:
-      replicas: 0 # Ensures the service isn't started
+  # # one-off job for pulling the jupyterlab image
+  # voila_image:
+  #   image: ghcr.io/fairmat-nfdi/nomad-north-voila:v0.1.15
+  #   platform: linux/amd64
+  #   container_name: nomad_voila_image
+  #   pull_policy: always
+  #   entrypoint: ["true"]
+  #   deploy:
+  #     replicas: 0 # Ensures the service isn't started
 
   # nomad proxy (a reverse proxy for nomad)
   proxy:

@@ -31,7 +31,7 @@ plugins:
       nomad_north_voila.north_tools:voila:
         north_tool:
           #image: ghcr.io/nomad-hzb/hzb-emil-image/jupyter:main
-          image: ghcr.io/fairmat-nfdi/nomad-north-voila:v0.1.15
+          image: ghcr.io/marlewe/hzb-bat-image/jupyter:main
           # path_prefix: voila/render
           # with_path: true
           # mount_path: /home/jovyan
