@@ -79,7 +79,9 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:9.5.0
     container_name: nomad_oasis_elastic_9
     environment:
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m -Dhttps.proxyHost=${PROXY_HOST} -Dhttps.proxyPort=${PROXY_PORT} -Dhttps.nonProxyHosts=localhost|127.0.0.1|elastics
+      # -XX:-UseBASE64Intrinsics is to prevent security issue https://calif.io/java4shell, https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching
+      # remove it, when elastic search container brings a fix by itself
+      - ES_JAVA_OPTS=-XX:-UseBASE64Intrinsics -Xms512m -Xmx512m -Dhttps.proxyHost=${PROXY_HOST} -Dhttps.proxyPort=${PROXY_PORT} -Dhttps.nonProxyHosts=localhost|127.0.0.1|elastics
       - discovery.type=single-node
       - xpack.security.enabled=false
     volumes:
