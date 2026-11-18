@@ -16,6 +16,9 @@ oasis:
   is_oasis: true
   uses_central_user_management: true
 
+documentation:
+  url: https://nomad-hzb.github.io/nomad-battery-space
+  
 plugins:
   entry_points:
     options:
