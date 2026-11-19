@@ -1,8 +1,8 @@
-![docker image](https://github.com/marlewe/hzb-bat-image/actions/workflows/docker-publish.yml/badge.svg)
+![docker image](https://github.com/nomad-hzb/hzb-bat-image/actions/workflows/docker-publish.yml/badge.svg)
 
-# marlewe's NOMAD Oasis Distribution
+# HZB Battery Data Space's NOMAD Oasis Distribution
 
-This is the NOMAD Oasis distribution of marlewe.
+This is the NOMAD Oasis distribution of HZB Battery Data Space.
 Below are instructions for how to [deploy this distribution](#deploying-the-distribution)
 and how to customize it through [adding plugins](#adding-a-plugin).
 
@@ -50,14 +50,14 @@ This section covers the minimal steps for getting an Oasis running locally. Note
 2. Clone the repository or download the repository as a zip file.
 
     ```sh
-    git clone https://github.com/marlewe/hzb-bat-image.git
+    git clone https://github.com/nomad-hzb/hzb-bat-image.git
     cd hzb-bat-image
     ```
 
     or
 
     ```sh
-    curl -L -o hzb-bat-image.zip "https://github.com/marlewe/hzb-bat-image/archive/main.zip"
+    curl -L -o hzb-bat-image.zip "https://github.com/nomad-hzb/hzb-bat-image/archive/main.zip"
     unzip hzb-bat-image.zip
     cd hzb-bat-image
     ```
@@ -257,7 +257,7 @@ Please see the [Jupyter image](#the-jupyter-image) section below for more inform
 ### For an existing Oasis
 
 If you already have an Oasis running you only need to change the image in
-`docker-compose.yaml` (either by setting `APP_IMAGE` in your `.env` or updating `x-images.nomad` in `docker-compose.yaml`) with `ghcr.io/marlewe/hzb-bat-image:main`.
+`docker-compose.yaml` (either by setting `APP_IMAGE` in your `.env` or updating `x-images.nomad` in `docker-compose.yaml`) with `ghcr.io/nomad-hzb/hzb-bat-image:main`.
 
 If you want to use the `nomad.yaml` from this repository you also need to comment out
 the inclusion of the `nomad.yaml` under the volumes key of `x-nomad-base` in
@@ -430,7 +430,7 @@ Note that the `base-notebook` image is more lightweight and uses less disk space
 The image is quite large and might cause a timeout the first time it is run. In order to avoid this you can pre pull the image with:
 
 ```sh
-docker pull ghcr.io/marlewe/hzb-bat-image/jupyter:main
+docker pull ghcr.io/nomad-hzb/hzb-bat-image/jupyter:main
 ```
 
 If you want additional python packages to be available to all users in the jupyter hub you can add those to the jupyter table in the [`pyproject.toml`](pyproject.toml):
@@ -592,7 +592,7 @@ For detailed migration instructions, please refer to the [NOMAD Oasis Migration 
 
 ## FAQ/Trouble shooting
 
-- _I get an_ `Error response from daemon: Head "https://ghcr.io/v2/marlewe/hzb-bat-image/manifests/main": unauthorized` _when trying to pull my docker image._
+- _I get an_ `Error response from daemon: Head "https://ghcr.io/v2/nomad-hzb/hzb-bat-image/manifests/main": unauthorized` _when trying to pull my docker image._
 
    Most likely you have not made the package public or provided a personal access token (PAT).
 You can read how to make your package public in the GitHub docs [here](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)

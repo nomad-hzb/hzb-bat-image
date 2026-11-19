@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "https://github.com/marlewe/hzb-bat-image"
+repository = "https://github.com/nomad-hzb/hzb-bat-image"
 
 [project.optional-dependencies]
 # Add your plugins to the list below.
