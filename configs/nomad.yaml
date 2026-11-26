@@ -65,6 +65,8 @@ plugins:
       "pynxtools.nomad.entrypoints:nexus_app",
       "pynxtools.nomad.entrypoints:simple_nexus_example",              
       "nomad_gui.apis:gui_api",
+      "nomad_material_processing:schema",
+      "nomad_material_processing.solution:schema",
       ]
 
 meta:
