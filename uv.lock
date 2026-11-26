@@ -4511,6 +4511,7 @@ dependencies = [
     { name = "netcdf4" },
     { name = "nomad-baseclasses" },
     { name = "nomad-lab", extra = ["infrastructure"] },
+    { name = "nomad-material-processing" },
     { name = "setuptools" },
 ]
 
@@ -4561,6 +4562,7 @@ requires-dist = [
     { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.1" },
     { name = "nomad-lab", extras = ["dev", "infrastructure"], marker = "extra == 'dev'", specifier = "==2.0.1" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==2.0.1" },
+    { name = "nomad-material-processing" },
     { name = "nomad-normalizer-plugin-bandstructure", marker = "extra == 'plugins'", specifier = ">=1.0.4" },
     { name = "nomad-normalizer-plugin-dos", marker = "extra == 'plugins'", specifier = ">=1.0.7" },
     { name = "nomad-normalizer-plugin-simulation-workflow", marker = "extra == 'plugins'", specifier = ">=1.0.5" },
@@ -4702,6 +4704,18 @@ infrastructure = [
     { name = "uvicorn", extra = ["standard"] },
     { name = "validators" },
     { name = "zipstream-ng" },
+]
+
+[[package]]
+name = "nomad-material-processing"
+version = "1.0.7"
+source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
+dependencies = [
+    { name = "nomad-lab" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cc/30/bc8d5b4859bf824986672eb9f08e4d856f29a85ad18414523b3fb77d6ec5/nomad_material_processing-1.0.7.tar.gz", hash = "sha256:ba240ed4a8350f74520dea31b52a6b198bbbc47704320af528c22d8e4f7a9b8b", size = 590559, upload-time = "2026-11-06T09:33:29.01Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7b/df/a8cce7bc5918a6f2fa6ede4a13d3f1716b43f8a879cf50380c62d88b01b3/nomad_material_processing-1.0.7-py3-none-any.whl", hash = "sha256:78c43d8a52ae5de9f3eb48def468ded61d22824a43adc3697abcde934d8aee49", size = 55121, upload-time = "2026-11-06T09:33:27.509Z" },
 ]
 
 [[package]]
